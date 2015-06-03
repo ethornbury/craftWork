@@ -18,8 +18,8 @@ Rails.application.configure do
   
   #addition from devise installation. In production, :host should be set to the actual host of your application.
   # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }  #if rails installed on own pc
-  config.action_mailer.default_url_options = { host: ENV['IP'],port: ENV['PORT'] }  #use if using cloud9
-
+  config.action_mailer.default_url_options = { host: ENV['IP'],port: ENV['PORT'] }  #devise: use if using cloud9
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }    #devise: if local use this 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -38,4 +38,9 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
+  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
 end
