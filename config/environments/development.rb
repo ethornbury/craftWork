@@ -17,7 +17,9 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   
   #addition from devise installation. In production, :host should be set to the actual host of your application.
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }  #if rails installed on own pc
+  config.action_mailer.default_url_options = { host: ENV['IP'],port: ENV['PORT'] }  #use if using cloud9
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

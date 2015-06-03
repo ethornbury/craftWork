@@ -36,7 +36,7 @@ gem 'bootstrap-generators', '~> 3.3.1'
 # to create a listing in pages rather than endless scrolling
 gem 'will_paginate',           '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
-
+gem 'quiet_assets', group: :development
 # Use unicorn as the app server
 # gem 'unicorn'
 group :development,:test do 

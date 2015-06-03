@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
+  resources :users
   
+  devise_for :users
   root                'static_pages#home'
-  get    'help'    => 'static_pages#help'
-  get    'work'    => 'static_pages#work'
-
+  get   'help'    =>  'static_pages#help'
+  get   'work'    =>  'static_pages#work'
+  get   '/signin'  =>  'devise/sessions#new'
+  post  '/signin'  =>  'devise/sessions#create'
+  get   '/signup'  =>  'devise/registrations#new'
+  delete '/signout'  => 'devise/sessions#destroy'
+  
+  
+  
+  
+  #resources :account_activations, only: [:edit]
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
